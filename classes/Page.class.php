@@ -5,6 +5,7 @@ class Page {
   var $subject;
   var $body;
   var $list;
+  var $notes;
   
   function Page($id) {
     $this->id = $id;
@@ -15,6 +16,7 @@ class Page {
     
     $this->body = new Body($this);
     $this->list = new GList($this);
+    $this->notes = new Notes($this);
   }
  
   function getHTML() {

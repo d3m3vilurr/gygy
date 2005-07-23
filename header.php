@@ -10,6 +10,7 @@ sajax_show_javascript();
 <script language="JavaScript" type="text/javascript" src="web/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="web/body.js"></script>
 <script language="JavaScript" type="text/javascript" src="web/list.js"></script>
+<script language="JavaScript" type="text/javascript" src="web/notes.js"></script>
 </head>
 <body>
 
