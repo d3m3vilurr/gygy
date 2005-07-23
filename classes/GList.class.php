@@ -64,6 +64,9 @@ class GList {
     }
     $html .= '</div>';
     $html .= '</div>';
+    if ($this->isEmpty()) {
+      $html .= "<script>_g('list_content').style.display='none';</script>";
+    }
     return $html;
   }
 
