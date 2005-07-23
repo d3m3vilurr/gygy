@@ -4,7 +4,7 @@ include_once("classes/DB.class.php");
 include_once("classes/Page.class.php");
 include_once("classes/Body.class.php");
 include_once("classes/GList.class.php");
-include_once("classes/Note.class.php");
+include_once("classes/Notes.class.php");
 
 include_once("lib/Sajax.php");
 
