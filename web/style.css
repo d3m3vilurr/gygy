@@ -67,3 +67,31 @@ a.trashcan {
   color: silver;
 }
 
+dl {
+  margin: 0; padding: 0;
+}
+
+dt {
+  float: left;
+  clear: left;
+  text-align: right;
+  margin: 5px 10px 0 0;
+  width: 100px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: 5px;
+  font-size: 11px;
+}
+
+dl dd input#noteSubject {
+  width: 360px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+dl dd textarea#noteContent {
+  width: 360px;
+}
