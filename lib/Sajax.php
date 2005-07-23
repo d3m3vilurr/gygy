@@ -122,13 +122,13 @@ if (!isset($SAJAX_INCLUDED)) {
 				else
 					uri = uri + "&rs=" + escape(func_name);
 				for (i = 0; i < args.length-1; i++) 
-					uri = uri + "&rsargs[]=" + escape(args[i]);
+					uri = uri + "&rsargs[]=" + encodeURI(args[i]);
 				uri = uri + "&rsrnd=" + new Date().getTime();
 				post_data = null;
 			} else {
 				post_data = "rs=" + escape(func_name);
 				for (i = 0; i < args.length-1; i++) 
-					post_data = post_data + "&rsargs[]=" + escape(args[i]);
+					post_data = post_data + "&rsargs[]=" + encodeURI(args[i]);
 			}
 			
 			x = sajax_init_object();
