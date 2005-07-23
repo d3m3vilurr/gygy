@@ -33,6 +33,12 @@ function showAddNoteDialog()
 
   line.style.display = "none";
   dialog.style.display = "block";
+
+  subject = _g("noteSubject");
+  subject.value = "";
+
+  content = _g("noteContent");
+  content.value = "";
 }
 
 function hideAddNoteDialog()
