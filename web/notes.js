@@ -42,6 +42,8 @@ function hideAddNoteDialog()
 
   line.style.display = "block";
   dialog.style.display = "none";
+
+  doLoad();
 }
 
 function delNote_cb(note) 
