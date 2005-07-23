@@ -1,10 +1,14 @@
 <?php
 include_once("config.php");
-include_once("classes/DB.class.php");
-include_once("classes/Page.class.php");
-include_once("classes/Body.class.php");
-include_once("classes/GList.class.php");
-include_once("classes/Notes.class.php");
+
+$dh = opendir("classes");
+while (($file = readdir($dh)) !== false) {
+  $filename = explode(".", $file);
+  if ($filename[count($filename) - 1] == "php") {
+    include_once("classes/" . $file);
+  }
+}
+closedir($dh);
 
 include_once("lib/Sajax.php");
 
