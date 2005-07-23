@@ -26,8 +26,6 @@ echo '<a href="#" onclick="showList(' . $page->id . ');">List</a> ';
 echo '<a href="#" onclick="showNotes(' . $page->id . ');">Notes</a><br /><br />';
 
 echo $page->getHTML();
-//echo "<br />";
-//echo '<div id="list_content" style="display:none"></div>';
 ?>
 
 <?php

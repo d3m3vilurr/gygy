@@ -24,8 +24,14 @@ function addListItem(page_id) {
 	x_addlistitem(page_id, input.value, addListItem_cb);
 }
 
-function checkListItem() {
-	//TODO
+function checkListItem_cb(data) {
+	div = _g("list_content");
+	div.style.display = "none";
+	showList(data);
+}
+
+function checkListItem(page_id, item_id, status) {
+	x_checklistitem(page_id, item_id, status, checkListItem_cb);
 }
 
 function showListItemInputForm_cb(data) {

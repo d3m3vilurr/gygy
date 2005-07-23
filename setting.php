@@ -29,6 +29,12 @@ function showlistiteminputform($page_id) {
   return GList::getListItemInputForm($page_id);
 }
 
+function checklistitem($page_id, $item_id, $status) {
+  $page = new Page($page_id);
+  $page->list->changeItemStatus($item_id, $status);
+  return $page->id;
+}
+
 function shownotes($page_id) {
   $page = new Page($page_id);
   return $page->notes->getHTML();
@@ -48,5 +54,6 @@ sajax_export("addlistitem");
 sajax_export("shownotes");
 sajax_export("addnote");
 sajax_export("showlistiteminputform");
+sajax_export("checklistitem");
 sajax_handle_client_request();
 ?>
