@@ -8,7 +8,9 @@ function editBody(page_id) {
 		t = document.createElement("div");
 		t.setAttribute("id", "body_edit_window");
 		html = '<form action="#" method="post" onsubmit="return false;"><textarea class="editor">';
-		html +=  div.firstChild.data;
+		if (div.firstChild != null) {
+			html +=  div.firstChild.data;
+		}
 		html += '</textarea><br />';
 		html += '<input type="button" value="Save changes" onclick="return saveBody(' + page_id + ')"/>';
 		html += 'or <a href="#" onclick="editBody();">Cancel</a>';
