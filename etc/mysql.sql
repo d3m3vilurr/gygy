@@ -19,3 +19,13 @@ CREATE TABLE t_list (
 	f_status INT,
 	PRIMARY KEY(f_id)
 );
+
+CREATE TABLE `t_note` (
+	`f_id` int(11) NOT NULL auto_increment,
+	`f_page_id` int(11) NOT NULL default '0',
+	`f_order` int(11) NOT NULL default '0',
+	`f_subject` varchar(255) NOT NULL default '',
+	`f_content` text NOT NULL,
+	PRIMARY KEY  (`f_id`)
+);
+
