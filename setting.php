@@ -46,6 +46,12 @@ function addnote($page_id, $subject, $content)
   return $page->notes->createItem($subject, $content);
 }
 
+function delnote($page_id, $note_id)
+{
+  $page = new Page($page_id);
+  return $page->notes->deleteItem($page_id, $note_id);
+}
+
 $sajax_request_type = "GET";
 sajax_init();
 sajax_export("savebody");
@@ -54,6 +60,7 @@ sajax_export("addlistitem");
 sajax_export("shownotes");
 sajax_export("addnote");
 sajax_export("showlistiteminputform");
+sajax_export("delnote");
 sajax_export("checklistitem");
 sajax_handle_client_request();
 ?>

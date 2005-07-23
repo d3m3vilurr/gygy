@@ -12,7 +12,7 @@ sajax_show_javascript();
 <script language="JavaScript" type="text/javascript" src="web/list.js"></script>
 <script language="JavaScript" type="text/javascript" src="web/notes.js"></script>
 </head>
-<body>
+<body onload="doLoad()">
 
 <div id="header">
 <a href="">Logout</a>

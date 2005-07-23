@@ -22,6 +22,7 @@ class Page {
   function getHTML() {
     $html = $this->body->getHTML();
     $html .= $this->list->getHTML();
+    $html .= $this->notes->getHTML();
     return $html;
   }
 

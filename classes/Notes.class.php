@@ -13,6 +13,14 @@ class Notes {
     return "INSERT INTO t_note (f_page_id, f_subject, f_content)  values (" . $this->page->id . ", '" . $subject . "', '" . $content . "')";
   }
 
+  function deleteItem($page_id, $note_id)
+  {
+    $db = new DB;
+    $db->query("DELETE FROM t_note WHERE f_id = $note_id");
+    $this->page->updateModifyDate();
+    return $note_id;
+  }
+
   function getItems()
   {
       $db = new DB;
@@ -35,21 +43,34 @@ class Notes {
 
   function getHTML()
   {
-    $html = "";
+    $page_id = $this->page->id;
+
+    $items = $this->getItems();
+    echo "<script type='text/javascript'>var note_count=".sizeof($items)."</script>";
+
+    $html = '<div id="notes_block">';
     $html .= "<h2>Notes</h2>";
+    $html .= '<div id="notes">';
     if ($this->isEmpty() == false) {
-      $items = $this->getItems();
       foreach ($items as $item) {
-        $html .= "<div class='note'>";
-        $html .= "<h3>" . $item["f_subject"] . "</h3>";
-        $html .= $item["f_content"];
+        $id = $item["f_id"];
+        $html .= "<div id='note_$id'>";
+        $html .= "<h3 id='show_note_$id'>" . $item["f_subject"] . " <a href='#' onclick='delNote($page_id, $id)'>del</a></h3>";
+        $html .= "<div class='note_content'>" . $item["f_content"] . "</div>";
         $html .= "</div>";
       }
     }
+    $html .= '<div id="add_note_dialog" style="display:none;">';
     $lines = file("notes.html");
     foreach ($lines as $line) {
       $html .= $line;
     }
+    $html .= "</div>";  ///< add_note_dialog div
+
+    $html .= '<p id="add_note"><a href="#" onclick="showAddNoteDialog()">Add note</a></p>';
+
+    $html .= "</div>";  ///< notes div
+    $html .= "</div>";  ///< notes_block div
     return $html;
   }
 }
