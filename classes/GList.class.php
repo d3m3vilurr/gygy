@@ -1,9 +1,12 @@
 <?php
 
-class GList {
+class GList extends Module {
   var $page;
   
-  function GList($page) {
+  function GList($page = 0) {
+    if ($page == 0) {
+      return;
+    }
     $this->page = $page;
   }
 
@@ -49,6 +52,10 @@ class GList {
     $row = mysql_fetch_assoc($result);
     $count = $row["count(*)"];
     return $count == 0;
+  }
+
+  function getButton() {
+    return '<a href="#" onclick="showList(' . $this->page->id . ');">List</a> ';
   }
 
   function getHTML() {

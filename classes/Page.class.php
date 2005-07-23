@@ -4,10 +4,12 @@ class Page {
   var $id;
   var $subject;
   var $body;
-  var $list;
-  var $notes;
+  var $objects;
   
-  function Page($id) {
+  function Page($id = 0) {
+    if ($id == 0) {
+      return;
+    }
     $this->id = $id;
     $db = new DB;
     $result = $db->query("select * from t_page where f_id=" . $id . "");
@@ -15,14 +17,32 @@ class Page {
     $this->subject = $r["f_subject"];
     
     $this->body = new Body($this);
-    $this->list = new GList($this);
-    $this->notes = new Notes($this);
+    
+    $this->objects = array();
+    global $modules;
+    foreach ($modules as $moduleName) {
+      $o = new $moduleName($this);
+      $this->objects[$moduleName] = $o;
+    }
   }
- 
+
+  function getObject($name) {
+    return $this->objects[$name];
+  }
+
+  function getButton() {
+    $html = $this->body->getButton();
+    foreach ($this->objects as $o) {
+      $html .= $o->getButton();
+    }
+    return $html;
+  }
+
   function getHTML() {
     $html = $this->body->getHTML();
-    $html .= $this->list->getHTML();
-    $html .= $this->notes->getHTML();
+    foreach ($this->objects as $o) {
+      $html .= $o->getHTML();
+    }
     return $html;
   }
 

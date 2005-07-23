@@ -21,10 +21,8 @@ echo "<h1>";
 echo $page->subject;
 echo "</h1>\n";
 
-echo '<a href="#" onclick="editBody(' . $page->id . ');">Edit Body</a> ';
-echo '<a href="#" onclick="showList(' . $page->id . ');">List</a> ';
-echo '<a href="#" onclick="showNotes(' . $page->id . ');">Notes</a><br /><br />';
-
+echo $page->getButton();
+echo "<br /><br />";
 echo $page->getHTML();
 ?>
 

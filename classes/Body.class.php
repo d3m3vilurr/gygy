@@ -5,7 +5,10 @@ class Body {
   var $page;
   var $content;
 
-  function Body($page) {
+  function Body($page = 0) {
+    if ($page == 0) {
+      return;
+    }
     $this->page = $page;
     
     $db = new DB;
@@ -19,6 +22,10 @@ class Body {
     $db = new DB;
     $db->query("update t_body set f_content = '" . $content . "' where f_id ='" . $this->id . "'");
     $this->page->updateModifyDate();
+  }
+
+  function getButton() {
+    return '<a href="#" onclick="editBody(' . $this->page->id . ');">Edit Body</a> ';
   }
 
   function getHTML() {

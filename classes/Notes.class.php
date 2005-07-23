@@ -1,8 +1,11 @@
 <?php
-class Notes {
+class Notes extends Module {
   var $page;
 
-  function Notes($page) {
+  function Notes($page = 0) {
+    if ($page == 0) {
+      return;
+    }
     $this->page = $page;
   }
 
@@ -39,6 +42,10 @@ class Notes {
     $row = mysql_fetch_assoc($result);
     $count = $row["count(*)"];
     return $count == 0;
+  }
+
+  function getButton() {
+    return '<a href="#" onclick="showNotes(' . $this->page->id . ');">Notes</a>';
   }
 
   function getHTML()

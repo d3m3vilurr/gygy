@@ -1,14 +1,25 @@
 <?php
 include_once("config.php");
 
+$classes = array();
 $dh = opendir("classes");
 while (($file = readdir($dh)) !== false) {
   $filename = explode(".", $file);
   if ($filename[count($filename) - 1] == "php") {
     include_once("classes/" . $file);
+    $classes[] = $file;
   }
 }
 closedir($dh);
+
+$modules = array();
+foreach ($classes as $file) {
+  $filename = explode(".", $file);
+  $o = new $filename[0];
+  if (is_subclass_of($o, "Module")) {
+    $modules[] = $filename[0];
+  }
+}
 
 include_once("lib/Sajax.php");
 
@@ -20,12 +31,14 @@ function savebody($page_id, $content) { //FIXME: move to some other file :(
 
 function showlist($page_id) {
   $page = new Page($page_id);
-  return $page->list->getHTML();
+  $list = $page->getObject("GList");
+  return $list->getHTML();
 }
 
 function addlistitem($page_id, $content) {
   $page = new Page($page_id);
-  $page->list->createItem($content);
+  $list = $page->getObject("GList");
+  $list->createItem($content);
   return $page->id;
 }
 
@@ -35,25 +48,29 @@ function showlistiteminputform($page_id) {
 
 function checklistitem($page_id, $item_id, $status) {
   $page = new Page($page_id);
-  $page->list->changeItemStatus($item_id, $status);
+  $list = $page->getObject("GList");
+  $list->changeItemStatus($item_id, $status);
   return $page->id;
 }
 
 function shownotes($page_id) {
   $page = new Page($page_id);
-  return $page->notes->getHTML();
+  $notes = $page->getObject("Notes");
+  return $notes->getHTML();
 }
 
 function addnote($page_id, $subject, $content)
 {
   $page = new Page($page_id);
-  return $page->notes->createItem($subject, $content);
+  $notes = $page->getObject("Notes");
+  return $notes->createItem($subject, $content);
 }
 
 function delnote($page_id, $note_id)
 {
   $page = new Page($page_id);
-  return $page->notes->deleteItem($page_id, $note_id);
+  $notes = $page->getObject("Notes");
+  return $notes->deleteItem($page_id, $note_id);
 }
 
 $sajax_request_type = "GET";
