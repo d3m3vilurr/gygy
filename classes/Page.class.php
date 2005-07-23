@@ -32,7 +32,7 @@ class Page {
 
   function getRecentPages() {
     $db = new DB;
-    $result = $db->query("select f_id, f_subject from t_page where f_id != 1 order by f_last_modify_date desc"); //TODO: get last 10 pages
+    $result = $db->query("select f_id, f_subject from t_page where f_id != 1 order by f_last_modify_date desc limit 10"); //TODO: get last 10 pages
     $pages = array();
     while ($row = mysql_fetch_assoc($result)) {
       $pages[] = $row;

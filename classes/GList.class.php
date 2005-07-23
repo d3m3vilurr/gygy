@@ -40,6 +40,7 @@ class GList {
     } else {
       $db->query("delete from t_list where f_id = " . $item_id);
     }
+    $this->page->updateModifyDate();
   }
 
   function isEmpty() {
