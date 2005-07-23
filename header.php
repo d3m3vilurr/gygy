@@ -7,10 +7,17 @@
 sajax_show_javascript();
 ?>
 </script>
-<script language="JavaScript" type="text/javascript" src="web/common.js"></script>
-<script language="JavaScript" type="text/javascript" src="web/body.js"></script>
-<script language="JavaScript" type="text/javascript" src="web/list.js"></script>
-<script language="JavaScript" type="text/javascript" src="web/notes.js"></script>
+<?php
+$dh = opendir("web");
+while (($file = readdir($dh)) !== false) {
+  $filename = explode(".", $file);
+  if ($filename[count($filename) - 1] == "js") {
+    echo '<script language="JavaScript" type="text/javascript" src="web/' . $file  .'"></script>';
+    echo "\n";
+  }
+}
+closedir($dh);
+?>
 </head>
 <body onload="doLoad()">
 
