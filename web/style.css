@@ -44,3 +44,26 @@ body
   width: 500px;
   height: 250px;
 }
+
+#notes_block h2 {
+  color: blue;
+  font-size: 12px;
+}
+
+.note_content {
+  font-size: 12px;
+}
+
+p#add_note {
+  font-size: 10px;
+}
+
+p#add_note a {
+  color: black;
+}
+
+a.trashcan {
+  font-size: 10px;
+  color: silver;
+}
+

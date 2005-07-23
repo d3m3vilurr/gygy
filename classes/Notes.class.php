@@ -55,7 +55,10 @@ class Notes {
       foreach ($items as $item) {
         $id = $item["f_id"];
         $html .= "<div id='note_$id'>";
-        $html .= "<h3 id='show_note_$id'>" . $item["f_subject"] . " <a href='#' onclick='delNote($page_id, $id)'>del</a></h3>";
+        $html .= "<h3 id='show_note_$id'>";
+        $html .= $item["f_subject"];
+        $html .= " <span id='edit_note_${id}_link2'><a href='#' class='trashcan' onclick='delNote($page_id, $id)'>del</a></span>";
+        $html .= "</h3>";
         $html .= "<div class='note_content'>" . $item["f_content"] . "</div>";
         $html .= "</div>";
       }
@@ -67,7 +70,7 @@ class Notes {
     }
     $html .= "</div>";  ///< add_note_dialog div
 
-    $html .= '<p id="add_note"><a href="#" onclick="showAddNoteDialog()">Add note</a></p>';
+    $html .= '<p id="add_note"><a href="#" onclick="showAddNoteDialog()">Add note</a> | <a href="#">Reorder</a></p>';
 
     $html .= "</div>";  ///< notes div
     $html .= "</div>";  ///< notes_block div
