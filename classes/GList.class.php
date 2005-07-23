@@ -34,6 +34,7 @@ class GList {
   }
 
   function deleteItem() {
+    
     //f_status + 1. if f_status > 2, delete it
   }
 
@@ -46,20 +47,33 @@ class GList {
   }
 
   function getHTML() {
-    $html = "";
+    $html = '<div id="list_content" style="display:block">';
     $html .= "List<hr/>";
     if ($this->isEmpty() == false) {
       $items = $this->getItems();
       foreach ($items as $item) {
-	$html .= $item["f_content"] . "<br />";
+	$html .= '<input type="checkbox" onclick="checkListItem()"/>';
+	$html .= $item["f_content"];
+	$html .= "<br />";
       }
+      $html .= '<div id="inputFormLink"><a href="#" onclick="showListItemInputForm()">Add item</a></div>';
     }
-    $html .= '<form action="#" method="post">';
-    $html .= '<input id="inputListItem" type="text" name="content" style="width:300px"/><br />';
-    $html .= '<input type="button" value="Add Item" onclick="addListItem(' . $this->page->id .  ' )"/>';
-    $html .= 'or <a href="#">Close</a>';
-    $html .= '</form>';
+    $html .= '<div id="inputListItemForm">';
+    if ($this->isEmpty()) {
+      $html .= GList::getListItemInputForm($this->page->id);
+    }
+    $html .= '</div>';
+    $html .= '</div>';
     return $html;
+  }
+
+  function getListItemInputForm($page_id) {
+    $html = '<form action="#" method="post">';
+      $html .= '<input id="inputListItem" type="text" name="content" style="width:300px"/><br />';
+      $html .= '<input type="button" value="Add Item" onclick="addListItem(' . $page_id .  ' )"/>';
+      $html .= 'or <a href="#" onclick="hideListItemInputForm()">Close</a>';
+      $html .= '</form>';
+      return $html;
   }
 }
 

@@ -20,8 +20,12 @@ function showlist($page_id) {
 
 function addlistitem($page_id, $content) {
   $page = new Page($page_id);
-  print $content;
   $page->list->createItem($content);
+  return $page->id;
+}
+
+function showlistiteminputform($page_id) {
+  return GList::getListItemInputForm($page_id);
 }
 
 $sajax_request_type = "GET";
@@ -29,5 +33,6 @@ sajax_init();
 sajax_export("savebody");
 sajax_export("showlist");
 sajax_export("addlistitem");
+sajax_export("showlistiteminputform");
 sajax_handle_client_request();
 ?>

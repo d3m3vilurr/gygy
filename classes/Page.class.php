@@ -17,6 +17,12 @@ class Page {
     $this->list = new GList($this);
   }
  
+  function getHTML() {
+    $html = $this->body->getHTML();
+    $html .= $this->list->getHTML();
+    return $html;
+  }
+
   function updateModifyDate() {
     $db = new DB;
     $db->query("update t_page set f_last_modify_date = '" . time() . "' where f_id='" . $this->id . "'");

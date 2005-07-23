@@ -18,9 +18,9 @@ echo "</h1>\n";
 echo '<a href="#" onclick="editBody(' . $page->id . ');">Edit Body</a> ';
 echo '<a href="#" onclick="showList(' . $page->id . ');">List</a><br /><br />';
 
-echo $page->body->getHTML();
-echo "<br />";
-echo '<div id="list_content" style="display:none"></div>';
+echo $page->getHTML();
+//echo "<br />";
+//echo '<div id="list_content" style="display:none"></div>';
 ?>
 
 <?php
