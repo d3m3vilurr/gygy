@@ -21,8 +21,7 @@ echo "<h1>";
 echo $page->subject;
 echo "</h1>\n";
 
-echo $page->getButton();
-echo "<br /><br />";
+echo "<div id='tools'>" . $page->getButton() . "</div>";
 echo $page->getHTML();
 ?>
 

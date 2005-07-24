@@ -45,6 +45,10 @@ body
   height: 250px;
 }
 
+h1 {
+  margin: 0;
+}
+
 h2 {
   color: blue;
   font-size: 12px;
@@ -98,7 +102,21 @@ dl dd textarea#noteContent {
   width: 360px;
 }
 
-a img {
+#tools {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#tools a {
+  font-size: 10px;
+  color: darkslategray;
+}
+
+#tools a img {
   border: 0px;
   vertical-align: middle;
+}
+
+#body_content {
+  margin: 0px;
 }
