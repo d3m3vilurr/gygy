@@ -20,7 +20,6 @@ $page = getPage($pageid);
 echo "<h1>";
 echo $page->subject;
 echo "</h1>\n";
-
 echo "<div id='tools'>" . $page->getButton() . "</div>";
 echo $page->getHTML();
 ?>

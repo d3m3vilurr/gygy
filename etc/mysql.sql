@@ -20,6 +20,15 @@ CREATE TABLE t_list (
 	PRIMARY KEY(f_id)
 );
 
+CREATE TABLE t_link (
+	f_id INT NOT NULL AUTO_INCREMENT,
+	f_page_id INT NOT NULL,
+	f_page_peer_id INT NOT NULL,
+	PRIMARY KEY(f_id),
+	UNIQUE(f_page_id, f_page_peer_id)
+);
+
+
 CREATE TABLE `t_note` (
 	`f_id` int(11) NOT NULL auto_increment,
 	`f_page_id` int(11) NOT NULL default '0',
@@ -28,4 +37,3 @@ CREATE TABLE `t_note` (
 	`f_content` text NOT NULL,
 	PRIMARY KEY  (`f_id`)
 );
-

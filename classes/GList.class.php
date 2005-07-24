@@ -68,7 +68,7 @@ class GList extends Module {
 	$html .= $item["f_content"];
 	$html .= "<br />";
       }
-      $html .= '<div id="inputFormLink"><a href="#" onclick="showListItemInputForm(' . $this->page->id . ')">Add item</a></div>';
+      $html .= '<div id="inputLinkFormLink"><a href="#" onclick="showListItemInputForm(' . $this->page->id . ')">Add item</a></div>';
     }
     $html .= '<div id="inputListItemForm">';
     if ($this->isEmpty()) {
