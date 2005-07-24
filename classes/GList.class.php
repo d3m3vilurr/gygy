@@ -102,14 +102,14 @@ class GList extends Module {
 }
 
 function showlist($page_id) {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $list = $page->getObject("GList");
   return $list->getHTML();
 }
 sajax_export("showlist");
 
 function addlistitem($page_id, $content) {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $list = $page->getObject("GList");
   $list->createItem($content);
   return $page->id;
@@ -122,7 +122,7 @@ function showlistiteminputform($page_id) {
 sajax_export("showlistiteminputform");
 
 function checklistitem($page_id, $item_id, $status) {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $list = $page->getObject("GList");
   $list->changeItemStatus($item_id, $status);
   return $page->id;

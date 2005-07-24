@@ -75,3 +75,9 @@ class Page {
     }
   }
 }
+
+function getPage($pageid)
+{
+  return new Page($pageid);
+}
+

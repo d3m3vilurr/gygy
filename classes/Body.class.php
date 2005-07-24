@@ -37,7 +37,7 @@ class Body {
 }
 
 function savebody($page_id, $content) {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $page->body->saveContent($content);
   return $content;
 }

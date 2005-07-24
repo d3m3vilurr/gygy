@@ -64,6 +64,7 @@ class Notes extends Module {
         $html .= "<div id='note_$id'>";
         $html .= "<h3 id='show_note_$id'>";
         $html .= $item["f_subject"];
+        $html .= " <span id='edit_note_${id}_link'><a href='#' class='trashcan' onclick='editNote($page_id, $id)'>edit</a></span>";
         $html .= " <span id='edit_note_${id}_link2'><a href='#' class='trashcan' onclick='delNote($page_id, $id)'>del</a></span>";
         $html .= "</h3>";
         $html .= "<div class='note_content'>" . $item["f_content"] . "</div>";
@@ -86,7 +87,7 @@ class Notes extends Module {
 }
 
 function shownotes($page_id) {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $notes = $page->getObject("Notes");
   return $notes->getHTML();
 }
@@ -94,7 +95,7 @@ sajax_export("shownotes");
 
 function addnote($page_id, $subject, $content)
 {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $notes = $page->getObject("Notes");
   return $notes->createItem($subject, $content);
 }
@@ -102,7 +103,7 @@ sajax_export("addnote");
 
 function delnote($page_id, $note_id)
 {
-  $page = new Page($page_id);
+  $page = getPage($page_id);
   $notes = $page->getObject("Notes");
   return $notes->deleteItem($page_id, $note_id);
 }
