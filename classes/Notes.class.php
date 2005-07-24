@@ -45,7 +45,7 @@ class Notes extends Module {
   }
 
   function getButton() {
-    return sprintf('<a href="#" onclick="showNotes(%d)">Notes</a>', $this->page->id);
+    return sprintf('<a href="#" onclick="showNotes(%d)"><img src="web/t-notes-off.gif" alt="Notes" /></a>', $this->page->id);
   }
 
   function getHTML()

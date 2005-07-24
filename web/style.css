@@ -48,7 +48,7 @@ body
 h2 {
   color: blue;
   font-size: 12px;
-  border-bottom: dotted 1px blue;
+  border-bottom: dotted 1px silver;
   padding-top: 1em;
 }
 
@@ -96,4 +96,9 @@ dl dd input#noteSubject {
 
 dl dd textarea#noteContent {
   width: 360px;
+}
+
+a img {
+  border: 0px;
+  vertical-align: middle;
 }

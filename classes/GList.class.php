@@ -55,7 +55,7 @@ class GList extends Module {
   }
 
   function getButton() {
-    return sprintf('<a href="#" onclick="showList(%d)">List</a>', $this->page->id);
+    return sprintf('<a href="#" onclick="showList(%d)"><img src="web/t-list-off.gif" alt="List" /></a>', $this->page->id);
   }
 
   function getHTML() {
