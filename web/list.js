@@ -50,8 +50,13 @@ function showListItemInputForm(page_id) {
 }
 
 function hideListItemInputForm() {
-	div = _g("inputListItemForm");
-	div.style.display = "none";
+	form = _g("inputListItemForm");
+	form.style.display = "none";
 	div = _g("inputFormLink");
-	div.style.display = "block";
+	if (div != null) {
+		div.style.display = "block";
+	} else {
+		c = _g("list_content");
+		c.style.display = "none";
+	}
 }
