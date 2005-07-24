@@ -22,6 +22,7 @@ closedir($dh);
 <body onload="doLoad()">
 
 <div id="header">
+<a href="rss.php">XML</a>
 <a href="">Logout</a>
 </div>
 
