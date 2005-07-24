@@ -36,4 +36,11 @@ class Body {
   }
 }
 
+function savebody($page_id, $content) {
+  $page = new Page($page_id);
+  $page->body->saveContent($content);
+  return $content;
+}
+sajax_export("savebody");
+
 ?>

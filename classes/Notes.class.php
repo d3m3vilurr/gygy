@@ -85,4 +85,27 @@ class Notes extends Module {
   }
 }
 
+function shownotes($page_id) {
+  $page = new Page($page_id);
+  $notes = $page->getObject("Notes");
+  return $notes->getHTML();
+}
+sajax_export("shownotes");
+
+function addnote($page_id, $subject, $content)
+{
+  $page = new Page($page_id);
+  $notes = $page->getObject("Notes");
+  return $notes->createItem($subject, $content);
+}
+sajax_export("addnote");
+
+function delnote($page_id, $note_id)
+{
+  $page = new Page($page_id);
+  $notes = $page->getObject("Notes");
+  return $notes->deleteItem($page_id, $note_id);
+}
+sajax_export("delnote");
+
 ?>
