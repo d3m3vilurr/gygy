@@ -55,12 +55,12 @@ class GList extends Module {
   }
 
   function getButton() {
-    return '<a href="#" onclick="showList(' . $this->page->id . ');">List</a> ';
+    return sprintf('<a href="#" onclick="showList(%d)">List</a>', $this->page->id);
   }
 
   function getHTML() {
     $html = '<div id="list_content" style="display:block">';
-    $html .= "List<hr/>";
+    $html .= "<h2>List</h2>";
     if ($this->isEmpty() == false) {
       $items = $this->getItems();
       foreach ($items as $item) {

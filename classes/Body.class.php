@@ -25,7 +25,7 @@ class Body {
   }
 
   function getButton() {
-    return '<a href="#" onclick="editBody(' . $this->page->id . ');">Edit Body</a> ';
+    return sprintf('<a href="#" onclick="editBody(%d)">Edit Body</a>', $this->page->id);
   }
 
   function getHTML() {

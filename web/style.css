@@ -45,9 +45,11 @@ body
   height: 250px;
 }
 
-#notes_block h2 {
+h2 {
   color: blue;
   font-size: 12px;
+  border-bottom: dotted 1px blue;
+  padding-top: 1em;
 }
 
 .note_content {

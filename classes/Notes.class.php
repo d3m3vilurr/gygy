@@ -45,7 +45,7 @@ class Notes extends Module {
   }
 
   function getButton() {
-    return '<a href="#" onclick="showNotes(' . $this->page->id . ');">Notes</a>';
+    return sprintf('<a href="#" onclick="showNotes(%d)">Notes</a>', $this->page->id);
   }
 
   function getHTML()
