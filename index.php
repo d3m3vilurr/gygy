@@ -15,7 +15,7 @@ var pageid = $pageid;
 </script>
 ";
 
-$page = new Page($pageid);
+$page = getPage($pageid);
 
 echo "<h1>";
 echo $page->subject;
