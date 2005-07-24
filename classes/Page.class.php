@@ -33,9 +33,14 @@ class Page {
   function getButton() {
     $html = $this->body->getButton();
     foreach ($this->objects as $o) {
-      $html .= $o->getButton();
+      $html .= $this->getSeparator() . $o->getButton();
     }
     return $html;
+  }
+
+  function getSeparator()
+  {
+    return " ";
   }
 
   function getHTML() {
