@@ -52,17 +52,26 @@ function hideAddNoteDialog()
   doLoad();
 }
 
-function delNote_cb(note) 
+function editNote_cb(noteid)
 {
-  note = _g("note_" + note);
+}
+
+function editNote(pageid, noteid)
+{
+  x_editnote(pageid, noteid, editNote_cb);
+}
+
+function delNote_cb(noteid) 
+{
+  note = _g("note_" + noteid);
   note.style.display = "none";
   note_count = note_count - 1;
   doLoad();
 }
 
-function delNote(page, note)
+function delNote(pageid, noteid)
 {
-  x_delnote(page, note, delNote_cb);
+  x_delnote(pageid, noteid, delNote_cb);
 }
 
 function doLoad()
