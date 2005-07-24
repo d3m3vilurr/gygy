@@ -76,8 +76,15 @@ class Page {
   }
 }
 
+$g_Page = "";
+
 function getPage($pageid)
 {
-  return new Page($pageid);
+  global $g_Page;
+  if ($g_Page == "") {
+    $g_Page = new Page($pageid);
+  }
+
+  return $g_Page;
 }
 
