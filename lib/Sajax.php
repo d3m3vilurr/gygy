@@ -99,6 +99,7 @@ if (!isset($SAJAX_INCLUDED)) {
 				A=new ActiveXObject("Msxml2.XMLHTTP");
 			} catch (e) {
 				try {
+					A=null;
 					A=new ActiveXObject("Microsoft.XMLHTTP");
 				} catch (oc) {
 					A=null;
@@ -148,8 +149,10 @@ if (!isset($SAJAX_INCLUDED)) {
 				data = x.responseText.substring(2);
 				if (status == "-") 
 					alert("Error: " + data);
-				else  
+				else {
 					args[args.length-1](data);
+					x = null;
+				}
 			}
 			x.send(post_data);
 			sajax_debug(func_name + " uri = " + uri + "/post = " + post_data);
